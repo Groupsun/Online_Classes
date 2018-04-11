@@ -1,0 +1,57 @@
+.container{
+    margin: 0rpx;
+}
+
+.welcome_words1 {
+    margin: 20rpx;
+    font-size: large;
+}
+
+.information {
+    margin: 40rpx;
+}
+
+.id {
+    margin-top: 40rpx;
+    margin-bottom :40rpx;
+    border-color: #878787; 
+    border-style: solid; 
+    border-top-width: 0px;
+    border-right-width: 0px; 
+    border-bottom-width: 1px;
+    border-left-width: 0px
+}
+
+.name {
+    margin-top: 40rpx;
+    margin-bottom :40rpx;
+    border-color: #878787; 
+    border-style: solid; 
+    border-top-width: 0px;
+    border-right-width: 0px; 
+    border-bottom-width: 1px;
+    border-left-width: 0px
+}
+
+.radio-group {
+    margin: 20rpx;
+}
+
+.radio {
+    margin: 20rpx;
+}
+
+.birth {
+    margin-top: 40rpx;
+    margin-bottom :40rpx;
+    border-color: #878787; 
+    border-style: solid; 
+    border-top-width: 0px;
+    border-right-width: 0px; 
+    border-bottom-width: 1px;
+    border-left-width: 0px
+}
+
+.submit {
+    margin: 20rpx;
+}

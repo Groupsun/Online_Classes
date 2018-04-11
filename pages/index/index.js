@@ -51,7 +51,9 @@ Page({
       hasUserInfo: true
     })
   },
-  stu: function(e) {
-      console.log(e);
+  stu: function() {
+      wx.navigateTo({
+          url: '../student/student'
+      })
   }
 })

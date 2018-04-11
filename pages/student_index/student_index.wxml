@@ -1,0 +1,4 @@
+<!--student_index.wxml-->
+<view class="container">
+    <text>学生主页</text>
+</view>
