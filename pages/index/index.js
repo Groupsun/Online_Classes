@@ -52,7 +52,11 @@ Page({
     })
   },
   stu: function() {
-      wx.navigateTo({
+      wx.setStorage({
+          key: 'identity_type',
+          data: 'S',
+      })
+      wx.redirectTo({
           url: '../student/student'
       })
   }

@@ -1,4 +1,8 @@
 <!--student_index.wxml-->
 <view class="container">
-    <text>学生主页</text>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <text class="student_index">学生主页</text>
+    <text class="current_classes">课程列表</text>
+    <button bindtap="getinfo" class="getinfo">获取信息</button>
 </view>

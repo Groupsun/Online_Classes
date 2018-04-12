@@ -21,7 +21,7 @@ Page({
 
     },
     submit: function(){
-        wx.navigateTo({
+        wx.redirectTo({
             url: '../student_index/student_index',
         })
     }

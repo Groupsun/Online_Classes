@@ -32,8 +32,30 @@ App({
         }
       }
     })
+
+    wx.getStorage({
+        key: 'identity_type',
+        success: function(res) {
+            console.log('success');
+            if(res.data == 'S'){
+                wx.redirectTo({
+                    url: '../pages/student_index/student_index',
+                })
+            }
+            else{
+                wx.redirectTo({
+                    url: '',
+                })
+            }
+        },
+        fail: function(res) {
+            console.log('fail');
+        }
+    })
   },
   globalData: {
     userInfo: null
-  }
+  },
+
+  
 })
