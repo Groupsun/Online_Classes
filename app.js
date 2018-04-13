@@ -9,7 +9,26 @@ App({
     // 登录
     wx.login({
       success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        var that = this;
+        wx.request({
+            url: 'http://47.106.66.176:8081/login',
+            data: {
+                "jscode": res.code
+            },
+            success: function(res) {
+                console.log(res.data);
+                that.globalData.openid = res.data.openid;
+                if(res.data.result_code == 0){
+                    wx.redirectTo({
+                        url: '/pages/index/index',
+                    })
+                }else{
+                    wx.redirectTo({
+                        url: '/pages/student_index/student_index',
+                    })
+                }
+            }
+        })
       }
     })
     // 获取用户信息
@@ -32,29 +51,10 @@ App({
         }
       }
     })
-
-    wx.getStorage({
-        key: 'identity_type',
-        success: function(res) {
-            console.log('success');
-            if(res.data == 'S'){
-                wx.redirectTo({
-                    url: '../pages/student_index/student_index',
-                })
-            }
-            else{
-                wx.redirectTo({
-                    url: '',
-                })
-            }
-        },
-        fail: function(res) {
-            console.log('fail');
-        }
-    })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    openid: null,
   },
 
   

@@ -1,15 +1,6 @@
-.student_index {
-    font-size: large;
-    margin: 20rpx;
-}
-
-.current_classes {
-    margin: 20rpx;
-}
-
 .userinfo-avatar {  
   width: 128rpx;  
   height: 128rpx;  
   margin: 20rpx;  
   border-radius: 50%;  
-} 
+}

@@ -1,0 +1,18 @@
+/* pages/courser/courser.wxss */
+.title {
+    font-size: large;
+    margin-bottom: 30rpx;
+}
+
+.courser_icon {
+    position: absolute;
+    width: 68rpx;
+    height: 68rpx;
+    left: 20rpx;
+    top: 20rpx;
+}
+
+.courser_name {
+    margin-top: 10rpx;
+    margin-bottom: 10rpx;
+}

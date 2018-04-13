@@ -4,17 +4,17 @@
     <text>请输入以下信息以继续</text>
     <view class="information">
         <text>学号</text>
-        <input class="id" type="number" maxlength='12'></input>
+        <input class="id" bindinput="stu_id" type="number" maxlength='12'></input>
         <text>姓名</text>
-        <input class="name" type="text"></input>
+        <input class="name" bindinput="stu_name" type="text"></input>
         <text>性别</text>
-        <radio-group class="radio-group">
+        <radio-group bindchange="stu_sex" class="radio-group">
                 <radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
                     <text>{{item.value}}</text>
                 </radio>
         </radio-group>
         <text>出生年月</text>
-        <input class="birth" value="yyyy-mm-dd"></input>
+        <input class="birth" bindinput="stu_birth" value="yyyy-mm-dd"></input>
     </view>
     <button class="submit" style="width: 300rpx" bindtap="submit">提交</button>
 </view>

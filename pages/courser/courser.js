@@ -1,11 +1,10 @@
 // page/one/index.js
+var list;
+
 Page({
     data: {
         open: false,
-        userInfo: {
-            avatarUrl: "",//用户头像  
-            nickName: "",//用户昵称 
-        }
+        list: null
     },
     tap_ch: function (e) {
         if (this.data.open) {
@@ -20,17 +19,11 @@ Page({
     },
     onLoad: function () {
         var that = this;
-        /**  
-         * 获取用户信息  
-         */
-        wx.getUserInfo({
-            success: function (res) {
-                console.log(res);
-                var avatarUrl = 'userInfo.avatarUrl';
-                var nickName = 'userInfo.nickName';
+        wx.request({
+            url: 'http://47.106.66.176:8081/courser',
+            success: function(res) {
                 that.setData({
-                    [avatarUrl]: res.userInfo.avatarUrl,
-                    [nickName]: res.userInfo.nickName,
+                    list: res.data
                 })
             }
         })
@@ -47,9 +40,9 @@ Page({
     onUnload: function () {
 
     },
-    courser_list: function() {
+    student_index: function() {
         wx.redirectTo({
-            url: '../courser/courser',
+            url: '../student_index/student_index',
         })
     }
 })
