@@ -8,7 +8,7 @@
             <view bindtap="courser_list" class="wc">
                 <text>课程列表</text>
             </view>
-            <view  class="wc">
+            <view bindtap="information" class="wc">
                 <text>个人信息</text>
             </view>
             <view  class="wc">

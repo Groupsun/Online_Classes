@@ -8,7 +8,7 @@
             <view class="wc">
                 <text>课程列表</text>
             </view>
-            <view  class="wc">
+            <view bindtap="information" class="wc">
                 <text>个人信息</text>
             </view>
             <view  class="wc">
@@ -18,12 +18,19 @@
     </view>
     <view class="page-top {{open ? 'c-state1' : ''}}">
         <image class="page-top-image" bindtap="tap_ch" src="../../images/btn.png"></image>
-        <view class="index_container">
+        <text>\n</text>
+        <view class="container">
             <text class="title">课程列表</text>
-            <block wx:for="{{list}}">
-                <!--image class="courser_icon" src="../../images/form.png"></image-->
-                <text class="courser_name">{{item.courser_name}}</text>
-            </block>
+            <scroll-view scroll-y="true" style="height: 100%">
+                <view wx:for="{{list}}">
+                    <view class="courser_name">
+                        <text>{{item.courser_name}}</text>
+                    </view>
+                    <view class="courser_des">
+                        <text>{{item.courser_description}}</text>
+                    </view>
+                </view>
+            </scroll-view>
         </view>
     </view>
 </view>

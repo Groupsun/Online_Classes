@@ -1,10 +1,12 @@
 {
     "pages": [
         "pages/index/index",
+        "pages/first_login/first_login",
         "pages/logs/logs",
         "pages/student/student",
         "pages/student_index/student_index",
-        "pages/courser/courser"
+        "pages/courser/courser",
+        "pages/information/information"
     ],
     "window": {
         "backgroundTextStyle": "light",

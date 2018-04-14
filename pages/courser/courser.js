@@ -44,5 +44,10 @@ Page({
         wx.redirectTo({
             url: '../student_index/student_index',
         })
+    },
+    information: function() {
+        wx.redirectTo({
+            url: '../information/information',
+        })
     }
 })

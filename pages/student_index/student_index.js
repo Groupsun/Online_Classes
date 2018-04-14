@@ -51,5 +51,10 @@ Page({
         wx.redirectTo({
             url: '../courser/courser',
         })
+    },
+    information: function() {
+        wx.redirectTo({
+            url: '../information/information',
+        })
     }
 })

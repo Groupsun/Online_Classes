@@ -25,6 +25,7 @@
 }
 .page-top{
   height: 100%;
+  flex-direction: row;
   position: fixed;
   width: 750rpx;
   background-color: rgb(100, 255, 255);

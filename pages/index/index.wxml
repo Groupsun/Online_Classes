@@ -1,22 +1,16 @@
-<!--index.wxml-->
+<!--pages/index/index.wxml-->
 <view class="container">
-    <view class="userinfo">
-        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-        <block wx:else>
-    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+    <view class="icon_container">
+        <image src="../../images/scut.png" class="scut_icon"></image>
     </view>
-    <view class="select_id">
-        <text>请选择你登陆的身份</text>
+    <view style="margin: 50rpx">
+        <text class="welcome_words">欢迎使用SCUT在线课堂</text>
     </view>
-    <view class="stu_button">
-        <button bindtap="stu" style="width: 300rpx; vertical-align:middle;">学生</button>
-    </view>
-    <view class="tea_button">
-        <button bindtap="tea" style="width: 300rpx; vertical-align:middle;">老师</button>
-    </view>
-    <view class="usermotto">
-        <text class="user-motto">{{motto}}</text>
+    <view class="develop_team">
+        <text style="font-size: large">开发团队\n</text>
+        <text>@Groupsun\n</text>
+        <text>@fangp328\n</text>
+        <text>@SodaTree-SecondSong\n</text>
+        <text>@yingxue_xu\n</text>
     </view>
 </view>

@@ -1,0 +1,10 @@
+/* pages/information/imformation.wxss */
+
+.information {
+    width: 100%
+}
+
+.information-text {
+    margin: 50rpx;
+    text-align: left;
+}

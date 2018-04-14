@@ -1,37 +1,22 @@
-/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* pages/index/index.wxss */
+.scut_icon {
+    width: 269px;
+    height: 75px;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.welcome_words {
+    font-size: larger;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.icon_container {
+    width: 100%;
+    background-color: rgb(12, 126, 217);
+    align-items: center;
 }
 
-.usermotto {
-  margin-top: 60px;
-}
-
-.select_id {
-    margin: 40rpx;
-}
-
-.id {
-    margin-top: 20rpx;   
-}
-
-.stu_button {
-    margin: 10rpx;
-}
-
-.tea_button {
-    margin: 10rpx;
+.develop_team {
+    margin: 30rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
