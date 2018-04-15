@@ -1,4 +1,6 @@
 // pages/information/imformation.js
+var app = getApp();
+
 Page({
 
   /**
@@ -16,15 +18,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      var id = wx.getStorageSync("user_id");
-      var name = wx.getStorageSync("user_name");
-      var birth = wx.getStorageSync("user_birthday");
-      var sex = wx.getStorageSync("user_sex");
-      this.setData({
-          stu_id: id,
-          stu_name: name,
-          stu_birth: birth,
-          stu_sex: sex
+      var that = this;
+      wx.request({
+          url: 'http://47.106.66.176:8081/user/' + app.globalData.openid,
+          success: function(res) {
+              that.setData({
+                  stu_id: res.data.user_id,
+                  stu_name: res.data.user_name,
+                  stu_birth: res.data.user_birthday.substr(0,10),
+                  stu_sex: res.data.user_sex
+              })
+          }
       })
   },
 
@@ -84,6 +88,46 @@ Page({
       } else {
           this.setData({
               open: true
+          });
+      }
+  },
+  tap_start: function (e) {
+      // touchstart事件
+      this.data.mark = this.data.newmark = e.touches[0].pageX;
+  },
+  tap_drag: function (e) {
+      // touchmove事件
+
+      /*
+       * 手指从左向右移动
+       * @newmark是指移动的最新点的x轴坐标 ， @mark是指原点x轴坐标
+       */
+      this.data.newmark = e.touches[0].pageX;
+      if (this.data.mark < this.data.newmark) {
+          this.istoright = true;
+      }
+      /*
+       * 手指从右向左移动
+       * @newmark是指移动的最新点的x轴坐标 ， @mark是指原点x轴坐标
+       */
+      if (this.data.mark > this.data.newmark) {
+          this.istoright = false;
+
+      }
+      this.data.mark = this.data.newmark;
+
+  },
+  tap_end: function (e) {
+      // touchend事件
+      this.data.mark = 0;
+      this.data.newmark = 0;
+      if (this.istoright) {
+          this.setData({
+              open: true
+          });
+      } else {
+          this.setData({
+              open: false
           });
       }
   },

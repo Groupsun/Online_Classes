@@ -16,8 +16,8 @@
             </view>
         </view>
     </view>
-    <view class="page-top {{open ? 'c-state1' : ''}}">
-        <image class="page-top-image" bindtap="tap_ch" src="../../images/btn.png"></image>
+    <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-top {{open ? 'c-state1' : ''}}">
+        <image class="page-top-image" bindtap="tap_ch"  src="../../images/btn.png"></image>
         <view class="index_container">
             <image class="userinfo-avatar" align="middle" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
             <text class="userinfo-nickname">{{userInfo.nickName}}</text>

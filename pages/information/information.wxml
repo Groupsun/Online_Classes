@@ -16,7 +16,7 @@
             </view>
         </view>
     </view>
-    <view class="page-top {{open ? 'c-state1' : ''}}">
+    <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-top {{open ? 'c-state1' : ''}}">
         <image class="page-top-image" bindtap="tap_ch" src="../../images/btn.png"></image>
         <view class="index_container">
             <text>个人信息</text>

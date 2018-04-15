@@ -28,11 +28,6 @@ Page({
     },
     submit: function(){
         console.log(this.data);
-
-        wx.setStorageSync("user_id", this.data.stu_id);
-        wx.setStorageSync("user_birthday", this.data.stu_birth);
-        wx.setStorageSync("user_sex", this.data.stu_sex);
-        wx.setStorageSync("user_name", this.data.stu_name);
         
         wx.request({
             url: 'http://47.106.66.176:8081/register',
