@@ -1,5 +1,6 @@
 // page/one/index.js
 var list;
+var app = getApp();
 
 Page({
     data: {
@@ -58,18 +59,28 @@ Page({
         }
     },
     onLoad: function () {
+        
+    },
+    onShow: function () {
         var that = this;
         wx.request({
-            url: 'http://47.106.66.176:8081/courser',
-            success: function(res) {
+            url: 'http://47.106.66.176:8081/courser/',
+            data: {
+                openid: app.globalData.openid
+            },
+            success: function (res) {
+                var i;
+                for (i = 0; i < res.data.length; i++) {
+                    if (res.data[i].is_selected == 1)
+                        res.data[i].is_selected = "已选";
+                    else res.data[i].is_selected = "未选";
+                }
                 that.setData({
                     list: res.data
                 })
+                wx.setStorageSync('courser_list', res.data)
             }
         })
-    },
-    onShow: function () {
-
     },
     onReady: function () {
 
@@ -88,6 +99,12 @@ Page({
     information: function() {
         wx.redirectTo({
             url: '../information/information',
+        })
+    },
+    info: function(event) {
+        console.log(event);
+        wx.navigateTo({
+            url: '../courser_info/courser_info?index=' + event.currentTarget.dataset.index + '&select=' + event.currentTarget.dataset.select,
         })
     }
 })

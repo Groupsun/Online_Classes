@@ -6,7 +6,8 @@
         "pages/student/student",
         "pages/student_index/student_index",
         "pages/courser/courser",
-        "pages/information/information"
+        "pages/information/information",
+        "pages/courser_info/courser_info"
     ],
     "window": {
         "backgroundTextStyle": "light",

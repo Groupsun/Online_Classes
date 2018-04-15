@@ -1,0 +1,20 @@
+/* pages/courser_info/courser_info.wxss */
+
+.title {
+    font-size: larger;
+    margin-bottom: 50rpx;
+}
+
+.information {
+    width: 100%;
+    margin: 50rpx;
+    text-align: left;
+}
+
+.inside {
+    margin: 30rpx;
+}
+
+.information_title {
+    font-size: large;
+}

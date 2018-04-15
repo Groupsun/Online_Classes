@@ -1,7 +1,8 @@
 /* pages/courser/courser.wxss */
 .title {
     font-size: larger;
-    margin-bottom: 30rpx;
+    margin-left: 120rpx;
+    margin-bottom: 10rpx;
 }
 
 .courser_icon {
@@ -28,6 +29,13 @@
     border-right-width: 0px; 
     border-bottom-width: 1px;
     border-left-width: 0px
+}
+
+.is_selected {
+    font-size:small;
+    margin-right: 50rpx;
+    margin-left: 30rpx;
+    text-align: right;
 }
 
 .container {

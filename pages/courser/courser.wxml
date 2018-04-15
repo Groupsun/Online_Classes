@@ -18,19 +18,19 @@
     </view>
     <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-top {{open ? 'c-state1' : ''}}">
         <image class="page-top-image" bindtap="tap_ch" src="../../images/btn.png"></image>
-        <text>\n</text>
-        <view class="container">
-            <text class="title">课程列表</text>
-            <scroll-view scroll-y="true" style="height: 100%">
-                <view wx:for="{{list}}">
-                    <view class="courser_name">
-                        <text>{{item.courser_name}}</text>
-                    </view>
-                    <view class="courser_des">
-                        <text>{{item.courser_description}}</text>
-                    </view>
+        <scroll-view scroll-y="true" style="height: 100%">
+            <text class="title">课程列表\n</text>
+            <view wx:for="{{list}}">
+                <view bindtap="info" data-index="{{index}}" data-select="{{item.is_selected}}" class="courser_name">
+                    <text>{{item.courser_name}}</text>
                 </view>
-            </scroll-view>
-        </view>
+                <view class="is_selected">
+                    <text>{{item.is_selected}}</text>
+                </view>
+                <view class="courser_des">
+                    <text>{{item.courser_description}}</text>
+                </view>
+            </view>
+        </scroll-view>
     </view>
 </view>

@@ -1,0 +1,36 @@
+<!--pages/courser_info/courser_info.wxml-->
+<view class="index_container">
+    <text class="title">课程信息</text>
+    <view class="infomation">
+        <view class="inside">
+            <text class="information_title">课程编号\n</text>
+            <text>{{courser_no}}\n</text>
+        </view>
+        <view class="inside">
+            <text class="information_title">课程名称\n</text>
+            <text>{{courser_name}}\n</text>
+        </view>
+        <view class="inside">
+            <text class="information_title">课程描述\n</text>
+            <text>{{courser_description}}\n</text>
+        </view>
+        <view class="inside">
+            <text class="information_title">课程开始日期\n</text>
+            <text>{{courser_begin_date}}\n</text>
+        </view>
+        <view class="inside">
+            <text class="information_title">课程结束日期\n</text> 
+            <text>{{courser_end_date}}\n</text>
+        </view>
+        <view class="inside">
+            <text class="information_title">课程状态\n</text>  
+            <text>{{courser_status}}\n</text>
+        </view>
+    </view>
+    <view wx:if="{{is_selected == 0}}">
+        <button bindtap="select">选课</button>
+    </view>
+    <view wx:else>
+        <button bindtap="cancel">取消选课</button>
+    </view>
+</view>
