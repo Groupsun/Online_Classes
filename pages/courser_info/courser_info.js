@@ -24,22 +24,27 @@ Page({
         var list = wx.getStorageSync("courser_list");
         var status = "";
         var select = 0;
-        if(list[index].courser_status == 1)
-            status = "已开课";
-        else status = "未开课";
-        if(options.select == "已选")
-            select = 1;
-        else select = 0;
-        this.setData({
-            courser_no: list[index].courser_no,
-            courser_name: list[index].courser_name,
-            courser_description: list[index].courser_description,
-            courser_begin_date: list[index].courser_begin_date.substr(0,10),
-            courser_end_date: list[index].courser_end_date.substr(0, 10),
-            courser_status: status,
-            is_selected: select
-        })
-        
+        var that = this;
+        wx.request({
+            url: 'http://47.106.66.176:8081/courser/' + index,
+            success: function(res) {
+                if (res.data.courser_status == 1)
+                    status = "已开课";
+                else status = "未开课";
+                if (options.select == "已选")
+                    select = 1;
+                else select = 0;
+                that.setData({
+                    courser_no: res.data.courser_no,
+                    courser_name: res.data.courser_name,
+                    courser_description: res.data.courser_description,
+                    courser_begin_date: res.data.courser_begin_date.substr(0, 10),
+                    courser_end_date: res.data.courser_end_date.substr(0, 10),
+                    courser_status: status,
+                    is_selected: select
+                })
+            }
+        })    
   },
 
   /**

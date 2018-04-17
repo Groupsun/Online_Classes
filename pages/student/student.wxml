@@ -14,7 +14,11 @@
                 </radio>
         </radio-group>
         <text>出生年月</text>
-        <input class="birth" bindinput="stu_birth" value="yyyy-mm-dd"></input>
+        <picker start="1900-01-01" end="2018-12-31" bindchange="stu_birth" mode = "date">
+            <view class="picker">
+            当前选择：{{stu_birth}}
+            </view>
+        </picker>
     </view>
     <button class="submit" style="width: 300rpx" bindtap="submit">提交</button>
 </view>

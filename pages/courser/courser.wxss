@@ -47,3 +47,8 @@
     padding: 30rpx 0;
     box-sizing: border-box;
 }
+
+.pickwhat {
+    margin-left: 120rpx;
+    margin-top: 20rpx;
+}

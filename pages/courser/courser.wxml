@@ -20,8 +20,13 @@
         <image class="page-top-image" bindtap="tap_ch" src="../../images/btn.png"></image>
         <scroll-view scroll-y="true" style="height: 100%">
             <text class="title">课程列表\n</text>
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class="picker">
+                    <text class="pickwhat">选择显示课程类型：{{array[index]}}</text>
+                </view>
+            </picker>
             <view wx:for="{{list}}">
-                <view bindtap="info" data-index="{{index}}" data-select="{{item.is_selected}}" class="courser_name">
+                <view bindtap="info" data-index="{{item.courser_no}}" data-select="{{item.is_selected}}" class="courser_name">
                     <text>{{item.courser_name}}</text>
                 </view>
                 <view class="is_selected">

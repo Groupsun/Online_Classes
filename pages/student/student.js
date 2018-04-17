@@ -56,6 +56,7 @@ Page({
         })
     },
     stu_birth: function(e) {
+        console.log(e.detail.value);
         this.setData({
             stu_birth: e.detail.value
         })

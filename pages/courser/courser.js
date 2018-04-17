@@ -5,7 +5,9 @@ var app = getApp();
 Page({
     data: {
         open: false,
-        list: null
+        list: null,
+        array: ['已选课程', '未选课程', '全部课程'],
+        index: null
     },
     tap_ch: function (e) {
         if (this.data.open) {
@@ -63,6 +65,7 @@ Page({
     },
     onShow: function () {
         var that = this;
+        console.log(this.data.index);
         wx.request({
             url: 'http://47.106.66.176:8081/courser/',
             data: {
@@ -78,7 +81,27 @@ Page({
                 that.setData({
                     list: res.data
                 })
-                wx.setStorageSync('courser_list', res.data)
+                wx.setStorageSync('courser_list', res.data);
+                if (that.data.index != null){
+                    var temp = [];
+                    if (that.data.index == 0) {
+                        var j = 0;
+                        for (var i = 0; i < that.data.list.length; i++)
+                            if (that.data.list[i].is_selected == "已选")
+                                temp[j++] = that.data.list[i];
+                        that.setData({
+                            list: temp
+                        })
+                    } else if (that.data.index == 1) {
+                        var j = 0;
+                        for (var i = 0; i < that.data.list.length; i++)
+                            if (that.data.list[i].is_selected == "未选")
+                                temp[j++] = that.data.list[i];
+                        that.setData({
+                            list: temp
+                        })
+                    }
+                }
             }
         })
     },
@@ -106,5 +129,29 @@ Page({
         wx.navigateTo({
             url: '../courser_info/courser_info?index=' + event.currentTarget.dataset.index + '&select=' + event.currentTarget.dataset.select,
         })
+    },
+    bindPickerChange: function(e) {
+        this.setData({
+            index: e.detail.value,
+            list: wx.getStorageSync('courser_list')
+        })
+        var temp = [];
+        if(this.data.index == 0){
+            var j = 0;
+            for(var i = 0;i < this.data.list.length;i++)
+                if(this.data.list[i].is_selected == "已选")
+                    temp[j++] = this.data.list[i];
+            this.setData({
+                list: temp
+            })
+        }else if(this.data.index == 1){
+            var j = 0;
+            for (var i = 0; i < this.data.list.length; i++)
+                if (this.data.list[i].is_selected == "未选")
+                    temp[j++] = this.data.list[i];
+            this.setData({
+                list: temp
+            })
+        }
     }
 })
