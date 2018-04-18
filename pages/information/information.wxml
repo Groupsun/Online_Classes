@@ -11,7 +11,7 @@
             <view  class="wc">
                 <text>个人信息</text>
             </view>
-            <view  class="wc">
+            <view bindtap="about" class="wc">
                 <text>关于</text>
             </view>
         </view>

@@ -7,7 +7,9 @@
         "pages/student_index/student_index",
         "pages/courser/courser",
         "pages/information/information",
-        "pages/courser_info/courser_info"
+        "pages/courser_info/courser_info",
+        "pages/about/about",
+        "pages/src/src"
     ],
     "window": {
         "backgroundTextStyle": "light",

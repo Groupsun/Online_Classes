@@ -124,6 +124,11 @@ Page({
             url: '../information/information',
         })
     },
+    about: function() {
+        wx.redirectTo({
+            url: '../about/about',
+        })
+    },
     info: function(event) {
         console.log(event);
         wx.navigateTo({

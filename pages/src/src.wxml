@@ -1,0 +1,2 @@
+<!--pages/src/src.wxml-->
+<span style="color:#ff0000;"><web-view src="https://github.com/Groupsun/Online_Classes"></web-view></span>

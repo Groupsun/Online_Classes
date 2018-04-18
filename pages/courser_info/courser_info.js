@@ -96,16 +96,55 @@ Page({
   
   },
 
-  select: function() {
-      wx.request({
-          url: 'http://47.106.66.176:8081/courser/' + this.data.courser_no,
-          data: {
-              openid: app.globalData.openid,
-          },
-          method: 'put',
-          success: function() {
-              console.log('success');
-          },
-      })
-  }
+    select: function() {
+        wx.request({
+            url: 'http://47.106.66.176:8081/courser/' + this.data.courser_no,
+            data: {
+                openid: app.globalData.openid,
+            },
+            method: 'put',
+            success: function() {
+                console.log('success');
+                wx.showToast({
+                    title: '成功',
+                    icon: 'success',
+                    duration: 2000
+                })
+            },
+            fail: function() {
+                console.log('fail');
+                wx.showToast({
+                    title: '失败',
+                    icon: 'fail',
+                    duration: 2000
+                })
+            }
+        })
+    },
+
+    cancel: function() {
+        wx.request({
+            url: 'http://47.106.66.176:8081/courser/' + this.data.courser_no,
+            data: {
+                openid: app.globalData.openid,
+            },
+            method: 'delete',
+            success: function () {
+                console.log('success');
+                wx.showToast({
+                    title: '成功',
+                    icon: 'success',
+                    duration: 2000
+                })
+            },
+            fail: function () {
+                console.log('fail');
+                wx.showToast({
+                    title: '失败',
+                    icon: 'fail',
+                    duration: 2000
+                })
+            }
+        })
+    }
 })

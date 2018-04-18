@@ -48,9 +48,17 @@ App({
                         url: '/pages/student_index/student_index',
                     })
                 }
+            },
+            fail: function(res) {
+                wx.showToast({
+                    title: '验证登陆信息失败',
+                })
+                wx.redirectTo({
+                    url: '../student_index/student_index',
+                })
             }
         })
-      }
+      } 
     })
   },
   globalData: {

@@ -1,0 +1,17 @@
+/* pages/about/about.wxss */
+.title {
+    font-size: larger;
+    margin: 50rpx;
+}
+
+.github {
+    width: 128rpx;
+    height: 128rpx;
+    
+}
+
+.box-absolute {
+    position: absolute;
+    right: 0rpx;
+    bottom: 0rpx;
+}
