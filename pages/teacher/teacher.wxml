@@ -1,0 +1,24 @@
+<!--teacher.wxml-->
+<view class="container">
+    <text class="welcome_words1">欢迎来到SCUT在线课堂</text>
+    <text>请输入以下信息以继续</text>
+    <view class="information">
+        <text>工号</text>
+        <input class="id" bindinput="tea_id" type="number" maxlength='12'></input>
+        <text>姓名</text>
+        <input class="name" bindinput="tea_name" type="text"></input>
+        <text>性别</text>
+        <radio-group bindchange="tea_sex" class="radio-group">
+                <radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+                    <text>{{item.value}}</text>
+                </radio>
+        </radio-group>
+        <text>出生年月</text>
+        <picker start="1900-01-01" end="2018-12-31" bindchange="tea_birth" mode = "date">
+            <view class="picker">
+            当前选择：{{tea_birth}}
+            </view>
+        </picker>
+    </view>
+    <button class="submit" style="width: 300rpx" bindtap="submit">提交</button>
+</view>

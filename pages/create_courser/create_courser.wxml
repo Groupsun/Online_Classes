@@ -1,0 +1,55 @@
+<!--pages/create_courser/create_courser.wxml-->
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+     <view class="index_container">
+            <text>新增课程</text> 
+     </view>
+    <view class="page__bd">
+    <view class="weui-cells__title">课程信息</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">课程名称</view>
+					
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入课程名称"/>
+                </view>
+            </view>
+			<view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">课程开始日期</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker mode="date" value="{{date}}" start="1990-01-01" end="2018-12-31" bindchange="bindDateChange">
+                        <view class="weui-input">{{date}}</view>
+                    </picker>
+                </view>
+            </view>
+			<view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">课程结束日期</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker mode="date" value="{{date}}" start="1990-01-01" end="2018-12-31" bindchange="bindDateChange">
+                        <view class="weui-input">{{date}}</view>
+                    </picker>
+                </view>
+            </view>
+		</view>
+		
+		 <view class="weui-cells__title">课程描述</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea" placeholder="请输入课程简介" style="height: 10.0em" />
+                    <view class="weui-textarea-counter">0/200</view>
+                </view>
+            </view>
+        </view>
+       
+        <view>
+            <button bindtap="submit">提交</button>
+        </view>
+    </view>
+
+</view>

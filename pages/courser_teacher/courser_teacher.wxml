@@ -1,0 +1,55 @@
+<!--page/one/index.wxml-->
+<view class="page">
+    <view class="page-bottom">
+        <view class="page-content">
+            <view bindtap="student_index" class="wc">
+                <text>主页</text>
+            </view>
+            <view class="wc">
+                <text>课程列表</text>
+            </view>
+            <view bindtap="information" class="wc">
+                <text>个人信息</text>
+            </view>
+            <view bindtap="about" class="wc">
+                <text>关于</text>
+            </view>
+        </view>
+    </view>
+
+    <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-top {{open ? 'c-state1' : ''}}">
+     <view class="page">
+        <view class="upside">
+            <image class="page-top-image" bindtap="tap_ch" src="../../images/btn.png"></image>
+            <text class="title">课程列表\n</text>
+        </view>
+         <scroll-view class="scroll" scroll-y="true" style="height: 90%">
+          <view class="page_bd">
+            <view class="weui-cell weui-cell_access weui-cell_link">
+                <view class="weui-cell__bd" bindtap="create">新增课程</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+          <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">已有课程</view>
+              <view class="weui-panel__bd">
+                <view wx:for="{{list}}">
+                  <view bindtap="info" data-index="{{item.courser_no}}" data-select="{{item.is_selected}}" class="courser_name">
+                     <view class="weui-media-box weui-media-box_text">
+                       <view class="weui-media-box__title weui-media-box__title_in-text">{{item.courser_name}}</view>
+                        <view class="weui-media-box__desc">{{item.courser_description}}</view>
+                      </view>
+                    </view>
+                  </view>
+               </view>
+            </view>
+          <view class="weui-panel__ft">
+        </view>
+      </view>
+     </scroll-view>
+    </view>
+</view>
+</view>
+
+
+
+              

@@ -9,7 +9,11 @@
         "pages/information/information",
         "pages/courser_info/courser_info",
         "pages/about/about",
-        "pages/src/src"
+        "pages/src/src",
+        "pages/teacher/teacher",
+        "pages/teacher_index/teacher_index",
+        "pages/courser_teacher/courser_teacher",
+        "pages/create_courser/create_courser"
     ],
     "window": {
         "backgroundTextStyle": "light",

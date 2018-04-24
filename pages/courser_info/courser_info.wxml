@@ -1,36 +1,52 @@
 <!--pages/courser_info/courser_info.wxml-->
 <view class="index_container">
     <text class="title">课程信息</text>
-    <view class="infomation">
-        <view class="inside">
-            <text class="information_title">课程编号\n</text>
-            <text>{{courser_no}}\n</text>
-        </view>
-        <view class="inside">
-            <text class="information_title">课程名称\n</text>
-            <text>{{courser_name}}\n</text>
-        </view>
-        <view class="inside">
-            <text class="information_title">课程描述\n</text>
-            <text>{{courser_description}}\n</text>
-        </view>
-        <view class="inside">
-            <text class="information_title">课程开始日期\n</text>
-            <text>{{courser_begin_date}}\n</text>
-        </view>
-        <view class="inside">
-            <text class="information_title">课程结束日期\n</text> 
-            <text>{{courser_end_date}}\n</text>
-        </view>
-        <view class="inside">
-            <text class="information_title">课程状态\n</text>  
-            <text>{{courser_status}}\n</text>
-        </view>
+</view>
+<view class="page">
+  <view class="page_bd">
+    <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">课程编号</view>
+                <view class="weui-cell__ft">{{courser_no}}\n</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__bd">课程名称</view>
+                <view class="weui-cell__ft">{{courser_name}}\n</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__bd">课程描述</view>
+                <view class="weui-cell__ft">{{courser_description}}\n</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__bd">课程开始日期</view>
+                <view class="weui-cell__ft">{{courser_begin_date}}\n</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__bd">课程结束日期</view>
+                <view class="weui-cell__ft">{{courser_end_date}}\n</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__bd">课程状态</view>
+                <view class="weui-cell__ft">{{courser_status}}\n</view>
+            </view>
     </view>
+  </view>
+  <view class="page__bd page__bd_spacing">
+    <text>\n</text>
+   <view wx:if="{{identity_type == 'S'}}">
     <view wx:if="{{is_selected == 0}}">
-        <button bindtap="select">选课</button>
+      <text>\n</text>
+      <button class="weui-btn" type="primary" bindtap="select">选课</button>
     </view>
     <view wx:else>
-        <button bindtap="cancel">取消选课</button>
+      <text>\n</text>
+      <button class="weui-btn" type="warn" bindtap="cancel">取消课程</button>
     </view>
+  </view>
+  <view wx:else>
+      <button class="weui-btn" type="primary" bindtap="modify">编辑课程信息</button>
+      <button class="weui-btn" type="warn" bindtap="delete">删除课程</button>
+  </view>
+ </view>
 </view>
+

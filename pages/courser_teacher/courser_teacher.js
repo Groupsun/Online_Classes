@@ -61,7 +61,7 @@ Page({
         }
     },
     onLoad: function () {
-        
+
     },
     onShow: function () {
         var that = this;
@@ -82,7 +82,7 @@ Page({
                     list: res.data
                 })
                 wx.setStorageSync('courser_list', res.data);
-                if (that.data.index != null){
+                if (that.data.index != null) {
                     var temp = [];
                     if (that.data.index == 0) {
                         var j = 0;
@@ -114,49 +114,30 @@ Page({
     onUnload: function () {
 
     },
-    student_index: function() {
+    student_index: function () {
         wx.redirectTo({
-            url: '../student_index/student_index',
+            url: '../teacher_index/teacher_index',
         })
     },
-    information: function() {
+    information: function () {
         wx.redirectTo({
             url: '../information/information',
         })
     },
-    about: function() {
+    about: function () {
         wx.redirectTo({
             url: '../about/about',
         })
     },
-    info: function(event) {
+    info: function (event) {
         console.log(event);
         wx.navigateTo({
             url: '../courser_info/courser_info?index=' + event.currentTarget.dataset.index + '&select=' + event.currentTarget.dataset.select,
         })
     },
-    bindPickerChange: function(e) {
-        this.setData({
-            index: e.detail.value,
-            list: wx.getStorageSync('courser_list')
+    create: function() {
+        wx.navigateTo({
+            url: '../create_courser/create_courser',
         })
-        var temp = [];
-        if(this.data.index == 0){
-            var j = 0;
-            for(var i = 0;i < this.data.list.length;i++)
-                if(this.data.list[i].is_selected == "已选")
-                    temp[j++] = this.data.list[i];
-            this.setData({
-                list: temp
-            })
-        }else if(this.data.index == 1){
-            var j = 0;
-            for (var i = 0; i < this.data.list.length; i++)
-                if (this.data.list[i].is_selected == "未选")
-                    temp[j++] = this.data.list[i];
-            this.setData({
-                list: temp
-            })
-        }
     }
 })

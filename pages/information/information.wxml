@@ -1,5 +1,6 @@
 <!--page/one/index.wxml-->
 <view class="page">
+
     <view class="page-bottom">
         <view class="page-content">
             <view bindtap="student_index" class="wc">
@@ -20,24 +21,41 @@
         <image class="page-top-image" bindtap="tap_ch" src="../../images/btn.png"></image>
         <view class="index_container">
             <text>个人信息</text>
-            <view class="information">
-                <view class="information-text">
-                    <text>学号\n</text>
-                    <text>{{stu_id}}</text>
-                </view>
-                <view class="information-text"> 
-                    <text>姓名\n</text>
-                    <text>{{stu_name}}</text>
-                </view>
-                <view class="information-text">
-                    <text>出生日期\n</text>
-                    <text>{{stu_birth}}</text>
-                </view>
-                <view class="information-text">
-                    <text>性别\n</text>
-                    <text>{{stu_sex}}</text>
-                </view>
-            </view>
         </view>
+       <view class="page">
+          <view class="page__bd">
+           <view class="weui-cells weui-cells_after-title">
+            
+                <view wx:if="{{identity_type == 'S'}}">
+                   <view class="weui-cell">
+                        <view class="weui-cell__bd">学号</view>
+                        <view class="weui-cell__ft">{{stu_id}}</view>
+                   </view>
+                </view>
+                <view wx:else>
+                  <view class="weui-cell">
+                        <view class="weui-cell__bd">工号</view>
+                        <view class="weui-cell__ft">{{stu_id}}</view>
+                  </view>
+                </view>       
+             <view class="weui-cell">
+                <view class="weui-cell__bd">姓名</view>
+                <view class="weui-cell__ft">{{stu_name}}</view>
+             </view>
+              <view class="weui-cell">
+                <view class="weui-cell__bd">出生日期</view>
+                <view class="weui-cell__ft">{{stu_birth}}</view>
+             </view>
+              <view class="weui-cell">
+                <view class="weui-cell__bd">性别</view>
+                <view class="weui-cell__ft">{{stu_sex}}</view>
+             </view>
+        </view>
+      </view>
     </view>
+  </view>
 </view>
+
+
+
+  

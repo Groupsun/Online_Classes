@@ -11,7 +11,8 @@ Page({
         stu_id: '',
         stu_name: '',
         stu_birth: '',
-        stu_sex: ''
+        stu_sex: '',
+        identity_type: ''
     },
 
     /**
@@ -19,8 +20,11 @@ Page({
      */
     onLoad: function (options) {
         var that = this;
+        this.setData({
+            identity_type: wx.getStorageSync('identity_type')
+        })
         wx.request({
-            url: 'http://47.106.66.176:8081/user/' + app.globalData.openid,
+            url: 'https://www.sunnychen.top:8081/user/' + app.globalData.openid,
             success: function(res) {
                 that.setData({
                     stu_id: res.data.user_id,
@@ -132,14 +136,26 @@ Page({
         }
     },
     student_index: function() {
-        wx.redirectTo({
-            url: '../student_index/student_index',
-        })
+        if (wx.getStorageSync('identity_type') == 'S'){
+            wx.redirectTo({
+                url: '../student_index/student_index',
+            })
+        }else{
+            wx.redirectTo({
+                url: '../teacher_index/teacher_index',
+            })
+        }
     },
     courser_list: function() {
-        wx.redirectTo({
-            url: '../courser/courser',
-        })
+        if (wx.getStorageSync('identity_type') == 'S'){
+            wx.redirectTo({
+                url: '../courser/courser',
+            })
+        }else{
+            wx.redirectTo({
+                url: '../courser_teacher/courser_teacher',
+            })
+        }
     },
     about: function() {
         wx.redirectTo({

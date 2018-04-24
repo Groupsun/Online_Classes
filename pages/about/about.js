@@ -117,15 +117,27 @@ Page({
     },
 
     student_index: function() {
-        wx.redirectTo({
-            url: '../student_index/student_index',
-        })
+        if (wx.getStorageSync('identity_type') == 'S'){
+            wx.redirectTo({
+                url: '../student_index/student_index',
+            })
+        }else{
+            wx.redirectTo({
+                url: '../teacher_index/teacher_index',
+            })
+        }
     },
 
     courser_list: function() {
-        wx.redirectTo({
-            url: '../courser/courser',
-        })
+        if (wx.getStorageSync('identity_type') == 'S'){
+            wx.redirectTo({
+                url: '../courser/courser',
+            })
+        }else{
+            wx.redirectTo({
+                url: '../courser_teacher/courser_teacher',
+            })
+        }
     },
 
     information: function() {
