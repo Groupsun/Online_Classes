@@ -10,7 +10,8 @@ Page({
         couresr_name: null,
         couresr_des: null,
         courser_start: null,
-        courser_end: null
+        courser_end: null,
+        string_length: 0
     },
 
     /**
@@ -77,7 +78,8 @@ Page({
 
     des: function(e){
         this.setData({
-            courser_des: e.detail.value
+            courser_des: e.detail.value,
+            string_length: e.detail.value.length
         })
     },
 
@@ -95,22 +97,25 @@ Page({
 
     submit: function(e) {
         wx.request({
-            url: 'https://www.sunnychen.top:8081/courser/create',
+            url: 'https://www.sunnychen.top/courser/create',
             data: {
                 courser_name: this.data.courser_name,
-                courser_description: this.data.courser_description,
+                courser_description: this.data.courser_des,
                 courser_begin_date: this.data.courser_start,
                 courser_end_date: this.data.courser_end,
                 courser_teacher_openid: app.globalData.openid
             },
-            method: 'put',
             success: function() {
                 wx.showToast({
                     title: '成功',
                     icon: 'success'
-                })
+                }),
+                setTimeout(function() {
+                    wx.navigateBack({
+                    })
+                }, 2000)
             },
-            faile: function() {
+            fail: function() {
                 wx.showToast({
                     title: '失败',
                     icon: 'fail'

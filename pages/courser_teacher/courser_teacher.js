@@ -67,7 +67,7 @@ Page({
         var that = this;
         console.log(this.data.index);
         wx.request({
-            url: 'https://www.sunnychen.top:8081/courser/',
+            url: 'https://www.sunnychen.top/courser/',
             data: {
                 openid: app.globalData.openid
             },

@@ -32,7 +32,7 @@ App({
         success: res => {
             var that = this;
             wx.request({
-                url: 'https://www.sunnychen.top:8081/login',
+                url: 'https://www.sunnychen.top/login',
                 data: {
                     "jscode": res.code
                 },

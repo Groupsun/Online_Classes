@@ -30,7 +30,7 @@ Page({
         console.log(this.data);
 
         wx.request({
-            url: 'https://www.sunnychen.top:8081/register',
+            url: 'https://www.sunnychen.top/register',
             data: {
                 "user_openid": app.globalData.openid,
                 "user_id": this.data.tea_id,

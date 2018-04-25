@@ -24,7 +24,7 @@ Page({
             identity_type: wx.getStorageSync('identity_type')
         })
         wx.request({
-            url: 'https://www.sunnychen.top:8081/user/' + app.globalData.openid,
+            url: 'https://www.sunnychen.top/user/' + app.globalData.openid,
             success: function(res) {
                 that.setData({
                     stu_id: res.data.user_id,

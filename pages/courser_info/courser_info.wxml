@@ -45,7 +45,7 @@
   </view>
   <view wx:else>
       <button class="weui-btn" type="primary" bindtap="modify">编辑课程信息</button>
-      <button class="weui-btn" type="warn" bindtap="delete">删除课程</button>
+      <button class="weui-btn" type="warn" bindtap="delete_courser">删除课程</button>
   </view>
  </view>
 </view>

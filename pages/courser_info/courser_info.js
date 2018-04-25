@@ -30,7 +30,7 @@ Page({
             var select = 0;
             var that = this;
             wx.request({
-                url: 'https://www.sunnychen.top:8081/courser/' + index,
+                url: 'https://www.sunnychen.top/courser/' + index,
                 success: function(res) {
                     if (res.data.courser_status == 1)
                         status = "已开课";
@@ -102,7 +102,7 @@ Page({
 
     select: function() {
         wx.request({
-            url: 'https://www.sunnychen.top:8081/courser/' + this.data.courser_no,
+            url: 'https://www.sunnychen.top/courser/' + this.data.courser_no,
             data: {
                 openid: app.globalData.openid,
             },
@@ -128,7 +128,7 @@ Page({
 
     cancel: function() {
         wx.request({
-            url: 'https://www.sunnychen.top:8081/courser/' + this.data.courser_no,
+            url: 'https://www.sunnychen.top/courser/' + this.data.courser_no,
             data: {
                 openid: app.globalData.openid,
             },
@@ -147,6 +147,38 @@ Page({
                     title: '失败',
                     icon: 'fail',
                     duration: 2000
+                })
+            }
+        })
+    },
+
+    delete_courser: function() {
+        wx.request({
+            url: 'https://www.sunnychen.top/courser/delete/' + this.data.courser_no,
+            data: {
+                courser_teacher_openid: app.globalData.openid
+            },
+            success: function(e) {
+                if(e.data.result_code == 1){
+                    wx.showToast({
+                        title: '删除成功',
+                        icon: 'success'
+                    }),
+                    setTimeout(function() {
+                        wx.navigateBack({
+                        })
+                    }, 2000)
+                }else if(e.data.result_code == 0){
+                    wx.showToast({
+                        title: '非本人创建课程无法删除',
+                        icon: 'failed'
+                    })
+                }
+            },
+            fail: function(e) {
+                wx.showToast({
+                    title: '删除失败',
+                    icon: 'failed'
                 })
             }
         })
