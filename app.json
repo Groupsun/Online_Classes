@@ -13,7 +13,10 @@
         "pages/teacher/teacher",
         "pages/teacher_index/teacher_index",
         "pages/courser_teacher/courser_teacher",
-        "pages/create_courser/create_courser"
+        "pages/create_courser/create_courser",
+        "pages/teacher_class/teacher_class",
+        "pages/student_class/student_class",
+        "pages/modify_courser/modify_courser"
     ],
     "window": {
         "backgroundTextStyle": "light",

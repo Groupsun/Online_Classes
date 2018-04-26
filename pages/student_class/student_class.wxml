@@ -1,0 +1,5 @@
+<!--pages/student_class/student_class.wxml-->
+<view class="index_container">
+    <text style='font-size: larger'>课室\n</text>
+    <text style='font-size: large'>{{courser_name}}</text>
+</view>

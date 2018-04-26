@@ -14,7 +14,8 @@ Page({
             courser_end_date: null,
             courser_status: null,
             is_selected: null,
-            identity_type: null
+            identity_type: null,
+            courser_index: null,
     },
 
     /**
@@ -25,6 +26,9 @@ Page({
                 identity_type: wx.getStorageSync('identity_type')
             })
             var index = options.index;
+            this.setData({
+                courser_index: index
+            })
             var list = wx.getStorageSync("courser_list");
             var status = "";
             var select = 0;
@@ -62,7 +66,24 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-    
+        var index = this.data.courser_index;
+        var that = this;
+        wx.request({
+            url: 'https://www.sunnychen.top/courser/' + index,
+            success: function (res) {
+                if (res.data.courser_status == 1)
+                    status = "已开课";
+                else status = "未开课";
+                that.setData({
+                    courser_no: res.data.courser_no,
+                    courser_name: res.data.courser_name,
+                    courser_description: res.data.courser_description,
+                    courser_begin_date: res.data.courser_begin_date.substr(0, 10),
+                    courser_end_date: res.data.courser_end_date.substr(0, 10),
+                    courser_status: status,
+                })
+            }
+        })
     },
 
     /**
@@ -181,6 +202,22 @@ Page({
                     icon: 'failed'
                 })
             }
+        })
+    },
+    enter_class: function() {
+        if(this.data.identity_type == 'S'){
+            wx.navigateTo({
+                url: '../student_class/student_class?courser_no=' + this.data.courser_no,
+            })
+        }else{
+            wx.navigateTo({
+                url: '../teacher_class/teacher_class?courser_no=' + this.data.courser_no,
+            })
+        }
+    },
+    modify: function() {
+        wx.navigateTo({
+            url: '../modify_courser/modify_courser?courser_no=' + this.data.courser_no,
         })
     }
 })

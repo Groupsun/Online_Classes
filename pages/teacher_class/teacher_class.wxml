@@ -1,0 +1,8 @@
+<!--pages/teacher_class/teacher_class.wxml-->
+<view class="index_container">
+    <text style='font-size: larger'>教师课室\n</text>
+    <text style='font-size: large'>{{courser_name}}</text>
+    <input bindchange="enter"></input>
+    <button bindtap="send">发送</button>
+    <text>{{msg_from_server}}</text>
+</view>
